@@ -28,7 +28,7 @@ function MenuCategory({ category, subcategory }) {
             <div className="item-price">₺{item.price}</div>
           </div>
           <div className="nutrition">
-                <span className="kalori">Kcal: {item.kcal}</span>
+                <span className="kalori">Enerji: {item.kcal}kcal</span>
                 <span className="protein">Protein: {item.protein}g</span>
                 <span className="fats">Yağ: {item.fat}g</span>
                 <span className="karb">Karb: {item.carb}g</span>

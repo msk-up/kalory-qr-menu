@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MenuCategory from '../MenuCategory/MenuCategory';
 import './Menu.css';
 import anayemek from "../../assets/ana-yemek.webp";
@@ -13,6 +13,9 @@ import tatli from '../../assets/tatlı.webp';
 function Menu() {
   const [activeCategory, setActiveCategory] = useState('food');
   const [activeSubcategory, setActiveSubcategory] = useState('');
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  const subcategoryRef = useRef(null); // Alt kategori container'ını referansla takip etmek için
 
   const subcategories = {
     food: [
@@ -34,10 +37,22 @@ function Menu() {
     setActiveSubcategory(''); // Alt kategori seçimlerini sıfırlar
   };
 
-  // Subcategory sayısına göre dinamik sınıf belirleme
-  const subcategoryClass = subcategories[activeCategory].length <= 3 
-    ? 'subcategory-switch-center' 
-    : 'subcategory-switch-start';
+  // Container'ın overflow durumunu kontrol eden hook
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (subcategoryRef.current) {
+        const container = subcategoryRef.current;
+        setIsOverflowing(container.scrollWidth > container.clientWidth); // Container taşma kontrolü
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow); // Ekran boyutu değiştiğinde yeniden kontrol
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [activeCategory]); // Kategori değiştiğinde tekrar kontrol et
+
+  // Dinamik sınıf belirleme
+  const subcategoryClass = isOverflowing ? 'subcategory-switch-start' : 'subcategory-switch-center';
 
   return (
     <div className="menu">
@@ -55,7 +70,7 @@ function Menu() {
           İçecek
         </button>
       </div>
-      <div className={`subcategory-switch ${subcategoryClass}`}>
+      <div className={`subcategory-switch ${subcategoryClass}`} ref={subcategoryRef}>
         {subcategories[activeCategory].map((sub) => (
           <div
             key={sub.key}
