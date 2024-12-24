@@ -46,7 +46,7 @@ function getItems(category, subcategory) {
     food: {
       'Ana-Yemek': [
         {
-          name: 'Tavuk Izgara Şöleni',
+          name: 'Tavuk Izgara',
           description: 'Sebzelerle (Kapya Biber, Patlıcan, Yeşil Biber ve Mantar) ile sotelenmiş baharatlı tavuk göğsü',
           price: 260,
           kcal: 420,
@@ -56,7 +56,7 @@ function getItems(category, subcategory) {
           image: tavuk
         },
         {
-          name: 'Köfte Tutkunu Menüsü',
+          name: 'Köfte Menüsü',
           description: 'Odun ateşinde pişirdiğimiz köftemiz, yanında pilav ve salata ile servis edilir.',
           price: 280,
           kcal: 520,
