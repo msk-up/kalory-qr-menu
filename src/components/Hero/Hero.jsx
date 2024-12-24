@@ -4,12 +4,16 @@ import kaloryco_logo from '../../assets/kaloryco_logo.svg';
 import tantunabi from '../../assets/tantunabi.webp';
 import restaurant_image from '../../assets/restaurant_image.webp';
 
+
 function Hero() {
   return (
     <div className="hero">
       <div className="hero-container">
         <div className="hero-logo">
           <img src={kaloryco_logo} alt="Kalory Logo" />
+        </div>
+        <div className="hero-restaurant">
+          <h2>Bolkepçe Lokantası</h2>
         </div>
         <div className="hero-slider">
         <div className="overlay"></div>
