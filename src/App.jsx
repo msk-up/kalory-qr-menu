@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import './App.css';
-import Hero from './components/Hero/Hero';
-import Menu from './components/Menu/Menu';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Hero from "./components/Hero/Hero";
+import Menu from "./components/Menu/Menu";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <Hero />
-      <Menu />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/:slug" element={<><Hero /><Menu /></>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

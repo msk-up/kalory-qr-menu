@@ -47,13 +47,7 @@
   display: none;
 }
 
-/* 1-3 subcategory varsa ortala */
-.subcategory-switch-center {
-  justify-content: center;
-}
-
-/* 4 veya daha fazla subcategory varsa sola hizala */ /* iptal ettik */
-.subcategory-switch-start {
+.subcategory-switch {
   justify-content: flex-start;
 }
 
@@ -205,4 +199,10 @@
   border: 1px solid #758ba5;
   border-radius: 5px;
   opacity: 20%;
+}
+
+.empty-category-text{
+  text-align: center;
+  color: #3c4148;
+  font-size: 1.1rem;
 }
